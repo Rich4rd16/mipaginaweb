@@ -1,0 +1,407 @@
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;/*Hack que se debe usar 1rem =10px*/
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+body { /*Nos permite agregar fuentes*/
+    font-family: 'Raleway', sans-serif; /* Todo lo que se encuentra en el body cambie de fuente*/
+    font-size: 1.6rem;
+    line-height: 2;/*Interlineados entre parafos*/
+}
+
+/*Globales*/
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif; /*Si aplica para que los titulos tengan otro formato de letra*/
+    margin:0 0 5rem 0; /*Los margenes que vienen por defecto en los titulos*/
+}
+h1 {
+    font-size: 5rem;
+}
+
+h2{
+    font-size: 4rem;
+}
+
+h3{
+    font-size: 3rem;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+
+.contenedor{/* Tambien se le pone  container, permite crear una linea en la navegación*/
+    /*Permite dejar espacio a los laterales para la pagina */
+    max-width: 120rem; /*Espacio en la navegacion para los diferentes tipos de sitios escogidos*/
+    /* margin: 0 auto 0 auto;*/
+    margin: 0 auto;/*nos permite centrar la navegacion principal*/
+}
+
+img{
+    max-width: 100%; /* Logra que la imagen se adapte al div de la pagina web*/
+    display:block; /* Permite eliminar el pequeño espacion que se encuentra entre la imagen y la palabra debajo de la imagen*/
+}
+.btn{
+    background-color: #8cbc00;
+    display: block; /*Permite tomar todo el ancho posible*/
+    color: #FFF;
+    text-transform: uppercase; /*Permite poner todo el texto en mayusculas*/
+    font-weight: 900; /*900 es la fuente escogida*/
+    padding: 1rem; 
+    transition: background-color .3s ease-out ; /*La transicion
+    del boton para que cambie de color, el primer parametro es escoger
+    que desea animar, el segundo es el tiempo*/
+    text-align: center;
+    border: none;
+}
+.btn:hover{
+    background-color: #769c02;
+    cursor: pointer; /*Agregar una manito al estar encima*/
+}
+
+/*Utilidades*/
+.text-center{
+    text-align: center;
+}
+
+.max-width-30{ /*Permite que el boton tenga un maximo de 300px*/
+    max-width: 30rem;
+}
+/*header y navegacion*/
+.nombre-sitio{
+    margin-top: 5rem;
+    text-align: center;
+}
+.nombre-sitio span{
+    color: #037bc0
+}
+.contenedor-navegacion{
+    /* border-color:#e1e1e1;
+    border-top-style: solid;
+    border-width: 1px;*/
+    border-top:.1rem solid #e1e1e1; /*Convierte la linea de menu navegacion en el color designado*/
+    border-bottom:.1rem solid #e1e1e1;
+}
+.nav-principal{
+    /*margin-top:50px;
+    margin-right:0px;
+    margin-bottom:30px;
+    margin-left:20px; 
+    tambien sirve para el padding*/
+    /*padding: 50px 0px 30px 20px;*/
+    padding: 2rem 0; /*Deja espacion arriba y abajo 20px de la barra de navegacion*/
+    display: flex; /*Nos permite usar flexbox*/
+    /*justify-content sirve para alinear horizontalmente
+    align-items sirve para alinear verticalmente*/
+    justify-content: space-between; /*Alinea y distribuye la barra de navegacion con cada item 
+    de manera igual de manera horizontal*/
+}
+
+.hero {
+    background-image: url(../img/principal.jpg); /*Llama la imagen que se encuentra en html hacia la carpeta de Css*/
+    background-repeat: no-repeat;/*nos permite que la imagen no se repita */
+    background-size: cover;/*permite que la imagen cubra todo el espacio*/
+    background-position: center center;/* Posicionar un elemento designado, en este caso la imagen de fondo de manera horizontal a vertical*/
+    height: 55rem; /*Define el tañano que se desea en la imagen para que aparezca en la pagina web*/ 
+}
+
+/*Categorias*/
+.categorias h2{
+    padding-top: 5rem; /*Deja un espacio de 50px en blanco arriba del titulo para que se vea bien*/
+}
+
+.categorias a{
+    text-align: center;/*Las palabras que hay debajo de cada imagen las centra para cada imagen*/
+    display: block;/* Se necesita de esto para centrar las palabras en el enlace debajo
+    de la imagen, cubirendo la parte bajo de la imagen con un cuadro para su respectiva animacion*/
+    padding: 2rem; /*Especio arriba, abajo de las palabras */
+    font-size: 2rem; /* Aumenta el tamaño de las letra*/
+}
+
+.categorias a:hover{ /*Al poner el mouse encima, se pone de color azul*/
+    background-color: #037bc0;/*Animacion de poner el cuado en azul*/
+    color:#FFF; /* Permite cambiar el color de la letra al poner encima el mouse del area*/
+    /*border-radius:40px; Crea esquinas redondeada*/
+    /*border-top-left-radius: 40px; Crea un borde a lado izquierdo superior*/
+    border-bottom-right-radius: 1rem; /*Crea un borde a lado izquierdo superior*/
+}
+.listado-categorias{
+    display:grid;
+    /*grid-template-columns: 200px 200px 200px 200px;       
+    /*grid-template-columns: repeat(4, 200px);*/
+    grid-template-columns: repeat(3, 1fr);/* Pone las imagenes en numero de columnas selecionado(#,1fr) con un mismo tamaño*/
+    gap: 2rem ;
+}
+
+/*Bloque nosotros*/
+.sobre-nosotros{
+    /*De derecha a izquiero, del 0 al 50 porciento va hacer negro y rojo a partir del 50% 
+    background-image: linear-gradient(to right, black 50%,red 50%, red 100%); */
+    background-image: linear-gradient(to right, transparent 50%, #037bc0 50%, #037bc0 
+    100% ), url(../img/nosotros.jpg); /*Se le pone transparent para que se logre ver la imagen*/
+    background-position: left center;
+    margin: 2rem 0;
+    padding: 10rem 0;
+    background-repeat: no-repeat;/*Para que la imagen no se repita*/
+    background-size: 100%, 80rem;
+}
+
+.sobre-nosotros-flex{
+/* display:grid; Para grid
+    grid-template-columns: repeat(2,1fr);/*Crea 2 columnas y lo asigna 1fr en ambas
+    column-gap: 32rem;*/
+    display:flex;
+    justify-content: flex-end; /*Se lo utiliza para enviar todo a la segunda columna*/
+}
+
+
+.texto-nosotros {
+
+    /* grid-column: 2 / 3; Le comenta que el titulo con el parrafo debe 
+        posicionarse de 2 a 3 en el grid... Esto se usa en caso de grid*/
+        flex-basis: 50%; /*Mide el ancho del elemento*/
+        padding-left: 10rem;
+        color:white;    
+}
+
+/*Listado de productos*/
+
+.contenido-principal{
+    padding-top: 5rem; /*Da espacio a "Nuestros productos * de arriba*/
+}
+.listado-productos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);/*Crear 6 columnas del mismo tamaño*/
+    /* column-gap: 2rem; Separacion en las columnas
+    row-gap: 2rem; /*Separacion en las filas*/
+    gap: 2rem; /*Separacion en columnas y filas*/
+}
+
+.producto:nth-child(1){/*Nos permite seleccionar los productos, en este caso la primera imagen*/
+    /*Vamos a posicionar de la columna 1 a la 7*/
+    grid-column-start: 1;
+    grid-column-end: 7;
+    display: grid;
+    grid-template-columns: 3fr 1fr; /*La primera columna va a tomar 3/4 y el resto una 1/4 */
+}
+.producto:nth-child(1) img{
+    height: 43rem;
+    width: 100%;
+    object-fit: cover; /*Posiciona la imagen dentro de un contenido para mantenerlo dentro del grid definido*/
+}
+.producto:nth-child(2){
+    /*Aqui vamos a poner dos productos en un solo grid*/
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.producto:nth-child(2) img, 
+.producto:nth-child(3) img{
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+.producto:nth-child(3){
+    grid-column-start: 4;
+    grid-column-end: 7;
+}
+.producto:nth-child(4){
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.producto:nth-child(5){
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+.producto:nth-child(6){
+    grid-column-start: 5;
+    grid-column-end: 7;
+}
+.producto{
+    background-color: #037bc0; /*Da color a la caja en donde se encuentra la clase producto*/
+}
+
+.texto-producto{ /*Permite poner la informacion en blanco y que este centrado*/
+    text-align: center;
+    color:#FFF;
+    padding: 2rem;
+}
+
+/* Los h y p sienpre tienen un margin por lo que se pone el 0 para que desaparezca*/
+
+.texto-producto h3{
+    margin: 0;
+}
+.p1 h3{
+    margin-top: 50rem ;
+}
+.texto-producto p{
+    margin: 0 0 0.5rem 0;
+}
+
+.texto-producto .precio{ /*Es el precio y como queremos que tenga otra fuente pues se pone esto*/
+    font-size: 2.8rem;
+    font-weight: 900;
+}
+/*Permite animar la imagen 
+.producto img{
+    transition: transform .3s ease-out;
+}
+
+/*Permite minorar la imagen al poner el selector de mouse 
+encima de ella
+.producto img:hover{
+    transform: scale(0.8);
+}*/
+
+/*footer*/
+.site-footer{
+    /*Para dibujo una linea */
+    border-top: 1px solid #e1e1e1; /* Primero el ancho del border, segundo el 
+    tipo de border y el tercero el color*/
+    margin-top: 5rem;/*Elemento hacia afuera espacio*/
+    padding-top: 5rem;/*Elemento hacia adentro espacio*/
+}
+.site-footer h3{
+    margin-bottom: 0.5rem;
+}
+.grid-footer{
+    /*Flex
+    display: flex;
+    gap: 2rem;*/
+    /*Grid*/
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr ;
+    gap: 2rem;
+
+}
+.lol{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 6rem;
+}
+.lol1{
+    grid-column: 2/3;
+}
+.footer-menu a{
+    display: block;
+}
+.copyright {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+/* flex
+.grid-footer div{
+    flex:1; /*Es el factor de crecimiento que va a tener un div
+}*/
+
+/*Nosotros*/
+
+.contenido-nosotros {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /**/
+    grid-template-columns: repeat(auto-fit,minmax(25rem, 1fr));/*Comenta que mientras el 
+    contenido es menos de 25rem lo vuelve responvise*/
+    column-gap: 6rem;
+}
+
+.informacion-nosotros{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*Nos permite alinear horizontalmente o verticalmente
+    dependiendo del flex-direction, flex-direction: column; o flex-direction:row;*/
+}
+
+/*Blog*/
+.contenedor-blog{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 4rem;
+}
+.entrada {
+    border-bottom: 2px solid #e1e1e1; /*Ancho, tipo de border, color*/
+    padding-bottom: 4rem;
+    margin-bottom: 2rem;
+}
+
+.entrada:last-of-type { /* Va a la ultima entrada para eliminar el border*/
+    border: none;
+}
+
+.entrada-meta { /*Para poner los dos p a lado de otro*/
+    display: flex;
+    justify-content: space-between;
+}
+
+.entrada-meta p{
+    font-weight: 700;
+}
+
+.entrada-meta span{
+    color:#037bc0;
+}
+
+.contenido-entrada-blog{
+    width: 60rem;
+    margin:0 auto;
+}
+/*Galeria*/
+
+.galeria{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.galeria img{
+    height: 40rem;
+    width: 40rem;
+    object-fit: cover; /*Permite a las imagen adecuarse a las especificaciones
+    anteriores*/
+}
+
+/*Formulario*/
+.formulario{
+    max-width: 60rem; /*Maximo 600px*/
+    margin: 0 auto; /*Centra el formulario*/
+}
+
+.formulario fieldset{
+    border: 1px solid black;
+    margin-bottom: 2rem;
+}
+
+.formulario legend{
+    background-color: #005485;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 1rem;
+    margin-bottom: 4rem;
+}
+
+.campo{
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.campo label{
+    flex-basis: 10rem; /*Permite alinear los cuadros de textos--*/
+}
+
+.campo input:not([type="radio"]), /*not dice que selecione a todos los input a exceptcion del radio*/
+.campo textarea,
+.campo select { /*El selector de atributos usa "[]" que es selector de atributos*/
+    flex: 1; /*Toma el espacion disponible*/
+    border: 1px solid #e1e1e1;
+}
